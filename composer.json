@@ -1,0 +1,27 @@
+{
+    "name": "camelot/doctrine-query-sql-formatter",
+    "description": "Doctrine ORM Query SQL formatting, with parameters, to make runnable queries",
+    "keywords": ["doctrine", "orm"],
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "jdorn/sql-formatter": "^1.2"
+    },
+    "require-dev": {
+        "php": "^7.4",
+        "doctrine/orm": "^2.6",
+        "phpunit/phpunit": "^8.4",
+        "camelot/coding-style": "^2.0",
+        "friendsofphp/php-cs-fixer": "^2.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "Camelot\\DoctrineQueryFormatter\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Camelot\\DoctrineQueryFormatter\\Tests\\": "tests"
+        }
+    }
+}

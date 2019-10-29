@@ -1,0 +1,27 @@
+language: php
+
+matrix:
+    include:
+        - php: 7.4snapshot
+          env: COMPOSER_FLAGS="--prefer-lowest"
+        - php: 7.4snapshot
+        - php: 7.4snapshot
+          env: PHPUNIT_FLAGS="--coverage-text"
+        - php: nightly
+    fast_finish: true
+    allow_failures:
+        - php: nightly
+
+services:
+    - postgresql
+
+before_script:
+    - travis_retry composer self-update
+    - travis_retry composer update --no-interaction --prefer-dist $COMPOSER_FLAGS
+
+script:
+    - vendor/bin/phpunit $PHPUNIT_FLAGS
+
+cache:
+    directories:
+        - $COMPOSER_CACHE_DIR
